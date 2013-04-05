@@ -1,0 +1,51 @@
+{
+    "id": "http://github.com/project8/interchange/mcinfo.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "JSON schema for project 8 monte carlo information",
+    "type": "object",
+    "required": [ 
+    	"mc_id",
+    	"system_temperature",
+    	"noise_model",
+    	"receiver_assumptions",
+    	"events" 
+    ],
+    "properties": {
+        "mc_id": {
+        	"description": "the name of the monte carlo routine which produced this data",
+            "type": "string"
+        },
+
+        "system_temperature": {
+        	"description": "the noise temperature of the system",
+        	"type": "float"
+        }
+
+        "noise_model": {
+        	"description": "how was noise generated",
+        	"type": "string",
+        	"oneOf": [
+        		"full_receiver_model",
+        		"simple_white_gaussian"
+        	]
+        },
+
+        "receiver_assumptions": {
+        	"description": "what assumptions are made about the receiver",
+        	"type": ["string"]
+        },
+
+        "events": ["$ref": "#/definitions/mcevent"]
+
+    },
+    "definitions": {
+        "mcevent": {
+        	"properties": {
+        		"support": {
+        			"description": "the time interval in samples that the event occured in, [start,end]",
+        			"type": ["integer", "integer"]
+        		}
+        	}
+        },
+    }
+}
