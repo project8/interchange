@@ -19,7 +19,7 @@
         "system_temperature": {
         	"description": "the noise temperature of the system",
         	"type": "float"
-        }
+        },
 
         "noise_model": {
         	"description": "how was noise generated",
