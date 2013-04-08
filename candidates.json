@@ -1,0 +1,39 @@
+{
+    "id": "http://github.com/project8/interchange/candidates.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "JSON schema for project 8 candidates from analysis",
+    "type": "object",
+    "required": [
+        "candidates"
+    ],
+    "properties": {
+        "candidates": {"$ref": "#/definitions/candidate"}
+    },
+    "definitions": {
+        "candidate": {
+            "required": [
+                "support",
+                "power",
+                "confidence"
+            ],
+            "properties": {
+                "support": {
+                    "description": "the time interval in samples that the event occured in, [start,end,start_uncertainty,end_uncertainty]",
+                    "type": ["integer", "integer","integer","integer"]
+                },
+                "frequency": {
+                    "description": "the frequency range in Hz that the even occurred in, [start,end,start_uncertainy,end_uncertainty"]",
+                    "type": ["float","float","float","float"]
+                },
+                "power": {
+                    "description": "the power in Watts radiated by the electron, [power, uncertainty]",
+                    "type": ["float","float"]
+                },
+                "confidence": {
+                    "description": "probability this is a real event and not noise with 1 being absolute confidence that this is a real event",
+                    "type": "float"
+                }
+            }
+        }
+    }
+}
