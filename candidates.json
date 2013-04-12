@@ -4,12 +4,44 @@
     "description": "JSON schema for project 8 candidates from analysis",
     "type": "object",
     "required": [
-        "candidates"
     ],
     "properties": {
-        "candidates": {"$ref": "#/definitions/candidate"}
+		"triggers": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/trigger"
+			}
+		}
+        "candidates": {
+			"type": "array",
+			"items": {
+				$ref": "#/definitions/candidate"
+			}
+		}
+		"comments": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		}
     },
     "definitions": {
+		"trigger": {
+			"required": [
+				"support",
+				"frequency_range"
+			],
+			"properties": {
+				"support": {
+                    "description": "the time interval in samples that the event occured in, [start,end]",
+                    "type": ["integer", "integer"]
+                },
+			"frequency": {
+                    "description": "the frequency range in Hz that the even occurred in, [start,end]",
+                    "type": ["float","float"]
+                },
+			}
+		},
         "candidate": {
             "required": [
                 "support",
@@ -22,7 +54,7 @@
                     "type": ["integer", "integer","integer","integer"]
                 },
                 "frequency": {
-                    "description": "the frequency range in Hz that the even occurred in, [start,end,start_uncertainy,end_uncertainty"]",
+                    "description": "the frequency range in Hz that the even occurred in, [start,end,start_uncertainy,end_uncertainty]",
                     "type": ["float","float","float","float"]
                 },
                 "power": {
