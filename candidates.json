@@ -4,51 +4,40 @@
     "description": "JSON schema for project 8 candidates from analysis",
     "type": "object",
     "required": [
+		"eggfile",
+		"candidates"
     ],
     "properties": {
-		"triggers": {
-			"type": "array",
-			"items": {
-				"$ref": "#/definitions/trigger"
-			}
-		}
+		"eggfile": {
+			"type": "string",
+			"description": "the data file this candidate list is derived from"
+		},
         "candidates": {
 			"type": "array",
 			"items": {
-				$ref": "#/definitions/candidate"
-			}
-		}
-		"comments": {
-			"type": "array",
-			"items": {
-				"type": "string"
+				"$ref": "#/definitions/candidate"
 			}
 		}
     },
     "definitions": {
-		"trigger": {
-			"required": [
-				"support",
-				"frequency_range"
-			],
-			"properties": {
-				"support": {
-                    "description": "the time interval in samples that the event occured in, [start,end]",
-                    "type": ["integer", "integer"]
-                },
-			"frequency": {
-                    "description": "the frequency range in Hz that the even occurred in, [start,end]",
-                    "type": ["float","float"]
-                },
-			}
-		},
         "candidate": {
             "required": [
-                "support",
-                "power",
-                "confidence"
+				"timing",
+				"confidence"
             ],
+			"inferior_if_missing": [
+				"timing",
+				"support",
+				"frequency",
+				"power",
+				"energy",
+				"confidence"
+			],
             "properties": {
+				"timing": {
+					"description": "the time interval in samples that the event occured in, [start,end,start_uncertainty,end_uncertainty]",
+					"type": ["float","float","float","float"]
+				},
                 "support": {
                     "description": "the time interval in samples that the event occured in, [start,end,start_uncertainty,end_uncertainty]",
                     "type": ["integer", "integer","integer","integer"]
@@ -61,6 +50,10 @@
                     "description": "the power in Watts radiated by the electron, [power, uncertainty]",
                     "type": ["float","float"]
                 },
+				"energy": {
+					"descirption": "reconstructed energy of the electron, in eV [energy,uncertainty]",
+					"type": ["float","float"]
+				},
                 "confidence": {
                     "description": "probability this is a real event and not noise with 1 being absolute confidence that this is a real event",
                     "type": "float"
