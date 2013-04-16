@@ -42,9 +42,9 @@
         "mcevent": {
         	"properties": {
         		"support": {
-        			"description": "the time interval in samples that the event occured in, [start,end]",
-        			"type": ["integer", "integer"]
-        		}
+        			"description": "the time interval in samples that the event occured in, [rec0, start, rec1, end]",
+        			"type": ["integer", "integer", "integer", "integer"]
+        		} 
         	}
         },
     }
