@@ -5,7 +5,7 @@
     "type": "object",
     "required": [ 
     	"mc_id",
-        "record_len",
+        "record_size",
     	"system_temperature",
     	"noise_model",
     	"receiver_assumptions",
