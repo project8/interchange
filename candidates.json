@@ -5,6 +5,7 @@
     "type": "object",
     "required": [
 		"eggfile",
+		"record_size",
 		"candidates"
     ],
     "properties": {
