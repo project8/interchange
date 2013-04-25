@@ -12,6 +12,10 @@
 			"type": "string",
 			"description": "the data file this candidate list is derived from"
 		},
+		"record_size": {
+		    "type": "integer",
+		    "description": "the number of samples in a record"
+		},
         "candidates": {
 			"type": "array",
 			"items": {
@@ -22,12 +26,11 @@
     "definitions": {
         "candidate": {
             "required": [
-				"timing",
+				"support",
 				"confidence"
             ],
-			"inferior_if_missing": [
+			"awesome_if_missing": [
 				"timing",
-				"support",
 				"frequency",
 				"power",
 				"energy",
@@ -39,7 +42,7 @@
 					"type": ["float","float","float","float"]
 				},
                 "support": {
-                    "description": "the time interval in samples that the event occured in, [start,end,start_uncertainty,end_uncertainty]",
+                    "description": "the time interval in samples that the event occured in, [start_record, start_sample, end_record, end_sample]",
                     "type": ["integer", "integer","integer","integer"]
                 },
                 "frequency": {
