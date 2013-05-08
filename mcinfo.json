@@ -6,6 +6,7 @@
     "required": [ 
     	"mc_id",
         "record_size",
+        "records_simulated",
     	"system_temperature",
     	"noise_model",
     	"receiver_assumptions",
@@ -17,10 +18,15 @@
             "type": "string"
         },
         
-        "record_len": {
+        "record_size": {
             "description": "length of a digitizer record for the monte carlo in samples",
             "type": "integer"
         }
+        
+        "records_simulated": {
+            "description": "number of records simulated",
+            "type": "integer"
+        },
 
         "system_temperature": {
         	"description": "the noise temperature of the system",
