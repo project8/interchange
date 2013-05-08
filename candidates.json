@@ -6,6 +6,7 @@
     "required": [
 		"eggfile",
 		"record_size",
+		"records_analyzed",
 		"candidates"
     ],
     "properties": {
@@ -16,6 +17,10 @@
 		"record_size": {
 		    "type": "integer",
 		    "description": "the number of samples in a record"
+		},
+		"records_analyzed": {
+		    "type": "integer",
+		    "description": "the number of records analyzed"
 		},
         "candidates": {
 			"type": "array",
