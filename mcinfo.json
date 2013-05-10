@@ -7,6 +7,7 @@
     	"mc_id",
         "record_size",
         "records_simulated",
+        "acquisition_rate",
     	"system_temperature",
     	"noise_model",
     	"receiver_assumptions",
@@ -26,6 +27,11 @@
         "records_simulated": {
             "description": "number of records simulated",
             "type": "integer"
+        },
+        
+        "acquisition_rate": {
+            "description": "the rate in Hz for the simulated acquisition",
+            "type": "float"
         },
 
         "system_temperature": {
